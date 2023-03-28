@@ -1,4 +1,4 @@
-# BOOKING
+# BOOKING 
 
 This is an API that allows users to make hotel bookings and creation of new hotels.
 
