@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_28_092015) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_28_114651) do
   create_table "hotels", force: :cascade do |t|
     t.string "name", null: false
-    t.string "rating", null: false
+    t.integer "rating", null: false
     t.string "class", null: false
     t.text "description", null: false
     t.integer "price", null: false
