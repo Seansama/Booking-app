@@ -141,9 +141,15 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+<<<<<<< HEAD
     reline (0.3.2)
       io-console (~> 0.5)
     sqlite3 (1.6.1-x86_64-linux)
+=======
+    reline (0.3.3)
+      io-console (~> 0.5)
+    sqlite3 (1.6.2-x86_64-linux)
+>>>>>>> 08cc6c2 (Change to ruby v)
     thor (1.2.1)
     timeout (0.3.2)
     tzinfo (2.0.6)
@@ -165,7 +171,11 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
+<<<<<<< HEAD
    ruby 2.7.4p191
+=======
+   ruby 3.0.2p107
+>>>>>>> 08cc6c2 (Change to ruby v)
 
 BUNDLED WITH
    2.4.7
