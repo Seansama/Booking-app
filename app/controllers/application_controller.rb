@@ -10,7 +10,7 @@ class ApplicationController < ActionController::API
         }, status: status
     end
 
-    #verify authorization headers
+    
     def authorize
         authorize_headers = request.headers['Authorization']
         if !authorize_headers
