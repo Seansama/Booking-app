@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
     before_action :session_expired?, only: [:check_login_status]
 
     def register
