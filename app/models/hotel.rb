@@ -1,5 +1,6 @@
 class Hotel < ApplicationRecord
   belongs_to :user
+  has_many :reviews
   validates :name, uniqueness:true, presence: true
   validates :class, presence: true
   validates :description, presence: true, uniqueness: true
