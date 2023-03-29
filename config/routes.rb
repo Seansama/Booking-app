@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :reviews
+  resources :bookings
+  resources :reviews, only: [:index, :create, :destroy]
   resources :hotels
   post '/users', to: 'users#register'
   post '/users/login', to: 'users#login'
