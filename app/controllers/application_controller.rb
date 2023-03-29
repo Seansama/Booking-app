@@ -10,6 +10,17 @@ class ApplicationController < ActionController::API
         }, status: status
     end
 
+    #verify authorization headers
+    def authorize
+        authorize_headers = request.headers['Authorization']
+        if !authorize_headers
+            app_response(message: 'failed', status: 401, data: { info: 'Your request is not authorized.' }) 
+        else
+            token = authorize_headers.split(' ')[1]
+            save_user_id(token)
+        end
+    end
+
     def save_user(id)
         session[:uid] = id
         session[:expiry] = 6.hours.from_now
