@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   post '/users/login', to: 'users#login'
   post '/users/login/check', to: 'users#check_login_status'
 
+  # verify auth
+  get '/authorize', to: 'application#authorize'
+
  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
