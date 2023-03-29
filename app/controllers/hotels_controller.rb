@@ -1,5 +1,5 @@
 class HotelsController < ApplicationController
-  before_action authorize
+  before_action :authorize
   def index
     hotels = Hotel.all
     if hotels
@@ -59,4 +59,9 @@ class HotelsController < ApplicationController
       render json: {error: 'Could not delete hotel'}, status: :not_found
     end
   end
+
+  def authorize
+    render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+  end
+
 end
