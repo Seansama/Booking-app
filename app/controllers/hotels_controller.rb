@@ -60,8 +60,5 @@ class HotelsController < ApplicationController
     end
   end
 
-  def authorize
-    render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
-  end
 
 end
