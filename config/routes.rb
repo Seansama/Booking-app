@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/users', to: 'users#register'
   post '/users/login', to: 'users#login'
   post '/users/login/check', to: 'users#check_login_status'
+  get '/my_hotels' => 'hotels#my_hotels'
 
   # verify auth
   get '/authorize', to: 'application#authorize'
