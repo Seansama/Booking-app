@@ -1,5 +1,10 @@
 class ReviewsController < ApplicationController
+
   before_action :authorize
+
+  
+
+
   def index
     reviews = Review.all
     if reviews
