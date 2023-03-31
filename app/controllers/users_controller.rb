@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :session_expired?
+    before_action :session_expired?, except: [:forgot_password, :reset_password]
 
     def register
         user = User.create(user_params)
@@ -28,10 +28,32 @@ class UsersController < ApplicationController
         app_response(message: 'Logout successful')
     end
 
+    def forgot_password
+        user = User.find_by(email: params[:email])
+        if user
+            user.generate_password_reset_token
+            user.save
+            # Send an email to the user with a link to the password reset page
+            app_response(message: 'Password reset instructions have been sent to your email', status: :ok)
+        else
+            app_response(message: 'Invalid email', status: :unprocessable_entity)
+        end
+    end
+
+    def reset_password
+        user = User.find_by(password_reset_token: params[:token])
+        if user && user.password_reset_token_valid?
+            user.update(password: params[:password])
+            user.save
+            app_response(message: 'Your password has been reset', status: :ok)
+        else
+            app_response(message: 'Invalid password reset token', status: :unprocessable_entity)
+        end
+    end
+
     private
 
     def user_params
         params.permit(:username, :email, :password)
     end
-
 end
