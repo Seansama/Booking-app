@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   resources :hotels
 
   # Sign-up and login routes
-  
-  post '/signup', to: 'users#register'
-  post '/login', to: 'users#login'
+  post '/signup', to: 'users#register', as: 'signup'
+  post '/login', to: 'users#login', as: 'login'
+
+
   
 
   # Verify auth route
