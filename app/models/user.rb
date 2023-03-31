@@ -1,6 +1,8 @@
 class User < ApplicationRecord
     has_secure_password
     has_many :hotels
+    has_many :bookings
+    has_many :hotels, through: :bookings
 
     validates :username,{
         length:{ maximum: 9,  minimum: 6 },
