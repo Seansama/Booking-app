@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :session_expired?, only: [:check_login_status]
+    before_action :session_expired?
 
     def register
         user = User.create(user_params)
@@ -16,15 +16,18 @@ class UsersController < ApplicationController
         user = User.where(sql, { username: user_params[:username], email: user_params[:email] }).first
         if user&.authenticate(user_params[:password])
             save_user(user.id)
+            token = encode(user.id, user.email)
             app_response(message: 'Login was successful', status: :ok, data: user)
         else
             app_response(message: 'Invalid username/email or password', status: :unauthorized)
         end
     end
 
-    def check_login_status
-        app_response(message: 'Login was successful', status: :ok)
+    def logout
+        remove_user
+        app_response(message: 'Logout successful')
     end
+
     private
 
     def user_params

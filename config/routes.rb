@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # Sign-up and login routes
   post '/signup', to: 'users#register'
   post '/login', to: 'users#login'
-  post '/check_login_status', to: 'users#check_login_status'
+  
 
   # Verify auth route
   get '/authorize', to: 'application#authorize'
