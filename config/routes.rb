@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   resources :bookings
   resources :reviews, only: [:index, :create, :destroy]
   resources :hotels
-
   # Sign-up and login routes
   post '/signup', to: 'users#register', as: 'signup'
   post '/login', to: 'users#login', as: 'login'

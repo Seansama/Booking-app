@@ -58,8 +58,7 @@ class HotelsController < ApplicationController
     else
       render json: {error: 'Could not delete hotel'}, status: :not_found
     end
-  end
-
+    
   def my_hotels
     hotels = Hotel.find_by(id: params[:user_id])
     hotels.all
@@ -68,7 +67,6 @@ class HotelsController < ApplicationController
     else
       render json: {error: 'No hotels for this user'}, status: :not_found
     end
-  end
-
+end
 
 end
