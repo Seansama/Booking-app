@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#register', as: 'signup'
   post '/login', to: 'users#login', as: 'login'
 
+  #custom admin hotel route
+  get '/my_hotels' => 'hotels#my_hotels'
+
 
   
 
