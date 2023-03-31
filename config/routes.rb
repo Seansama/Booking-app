@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :hotels
 
   # Sign-up and login routes
+  
   post '/signup', to: 'users#register'
   post '/login', to: 'users#login'
   

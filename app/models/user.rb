@@ -23,7 +23,7 @@ class User < ApplicationRecord
   def password_reset_token_valid?
     (password_reset_token_sent_at + 1.hour) > Time.current
   end
+  
 end
 
 
-end
