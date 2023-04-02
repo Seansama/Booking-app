@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
+import Footer from './Footer';
+import Navbar from './navbar';
 function Admin() {
   const [formData, setFormData] = useState({
     name: '',
@@ -75,10 +76,10 @@ function Admin() {
  
 return (
     <div style={bgStyle}>  
-     
-     <div className="p-8 bg-blue-300 flex-center w-4/12 mt-14 ml-14">
+     <Navbar/>
+     <div className="p-8 bg-blue-300 flex-center w-4/12 mt-20 ml-14">
       <h2 className="text-3xl font-bold mb-8">Add Hotel</h2>
-      <form onSubmit={handleFormSubmit} className="flex flex-wrap gap-4">
+      <form onSubmit={handleFormSubmit} className="flex flex-wrap gap-2">
         <div className="w-full md:w-1/2">
           <label htmlFor="name" className="block mb-2 font-bold text-gray-700">
             Name:
@@ -180,6 +181,7 @@ return (
   </div>
   </form>
     </div>
+    <Footer />
   </div>
 
 

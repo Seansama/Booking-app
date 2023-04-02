@@ -1,4 +1,5 @@
- 
+import Footer from './Footer';
+import Navbar from './navbar';
 
 import React, { useState } from "react";
 
@@ -758,6 +759,7 @@ const ContactPage = () => {
   
   return (
     <div>
+      <Navbar/>
     <div className="profile flex flex-wrap justify-center">
       {profiles.map((profile, index) => (
         <div className="w-full md:w-1/2 lg:w-1/2 mb-6 px-2" key={index} onClick={() => handleClick(index)}>
@@ -794,7 +796,7 @@ const ContactPage = () => {
       ))}
      
     </div>
-    <div> <button class="ml-12 mt-12 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+    <div> <button class="ml-12 mt-20 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block align-text-bottom" viewBox="0 0 20 20" fill="currentColor">
     <path fill-rule="evenodd" d="M20.71 11.29l-8-8C12.53 3.11 12.28 3 12 3s-.53.11-.71.29l-8 8C3.11 11.47 3 11.72 3 12s.11.53.29.71l8 8c.18.18.43.29.71.29s.53-.11.71-.29c.39-.39.39-1.02 0-1.41L6.41 13H20c.55 0 1-.45 1-1s-.45-1-1-1h-13.59l5.29-5.29c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0l-8 8C3.11 11.47 3 11.72 3 12s.11.53.29.71l8 8C11.47 20.89 11.72 21 12 21s.53-.11.71-.29l8-8c.39-.39.39-1.02 0-1.41z"/>
 </svg>
