@@ -5,7 +5,7 @@ import Navbar from "../navbar";
 function Register(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [username, setName] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +15,7 @@ function Register(props) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password, name }),
+        body: JSON.stringify({ email, password, username }),
       });
       if (response.ok) {
         props.history.push("/Login");
@@ -41,7 +41,7 @@ function Register(props) {
               Full Name
             </label>
             <input
-              value={name}
+              value={username}
               onChange={(e) => setName(e.target.value)}
               className="w-full border border-gray-400 p-2 rounded-md mb-4"
               type="name"

@@ -1,26 +1,24 @@
 class UsersController < ApplicationController
 
     def register
-        user = User.create(user_params)
-        if user.valid?
-            save_user(user.id)
-            app_response(message: 'Registration was successful', status: :created, data: user)
+        user = User.create(
+          username: params[:username],
+          email: params[:email],
+          password: params[:password]
+        )
+        if user.save
+            render json: user, status: :created
         else
-            app_response(message: 'Something went wrong during registration', status: :unprocessable_entity, data: user.errors)
+            render json: {error: user.errors.full_messages}, status: :unprocessable_entity
         end
     end
 
 
 
     def logout
-        remove_user
+
         app_response(message: 'Logout successful')
     end
 
 
-    private
-
-    def user_params
-        params.permit(:username, :email, :password)
-    end
 end
