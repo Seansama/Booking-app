@@ -1,36 +1,29 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
- 
- import AboutPage from "./components/AboutPage";
- import Admin from "./components/AdminPage";
- import BookedHotels from "./components/BookedHotels";
+import AboutPage from "./components/AboutPage";
+import Admin from "./components/AdminPage";
+import BookedHotels from "./components/BookedHotels";
 import ContactPage from "./components/ContactPage";
-import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
 import LandingPage from "./components/LandingPage";
-import MapPage from "./components/MapPage";
-
 import Login from "./components/Form/Login";
 import SignUp from "./components/Form/SignUp";
 import Navbar from "./components/navbar";
-
 
 function App() {
   return (
     <Router>
       <div>
-        <Navbar/>
+        <Navbar />
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/home" element={<HomePage/>} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/About" element={<AboutPage />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/Login" element={<Login/>} />
+          <Route path="/Login" element={<Login />} />
           <Route path="/Booked" element={<BookedHotels />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/Contact" element={<ContactPage />} />
-         
         </Routes>
-        
       </div>
     </Router>
   );

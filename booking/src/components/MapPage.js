@@ -36,8 +36,8 @@ function MapPage() {
 
         // add an info window to the marker
         if (hotel.name) {
-    const infowindow = new window.google.maps.InfoWindow({
-      content: `
+          const infowindow = new window.google.maps.InfoWindow({
+            content: `
         <div class="flex items-center gap-4 p-4">
           <div class="w-24 h-24">
             <img src="${hotel.image}" class="object-cover w-full h-full rounded-lg" alt="${hotel.name}">
@@ -48,13 +48,12 @@ function MapPage() {
           </ul>
         </div>
       `,
-
-    });
-    marker.addListener("mouseover", function () {
-      infowindow.open(map, marker);
-    });
-    marker.addListener("mouseout", function () {
-      infowindow.close();
+          });
+          marker.addListener("mouseover", function () {
+            infowindow.open(map, marker);
+          });
+          marker.addListener("mouseout", function () {
+            infowindow.close();
           });
         }
       }
@@ -71,7 +70,7 @@ function MapPage() {
     }
   }, [apiKey]);
 
-  return <div id="map" style={{ height: "900px", width:"758px" }}></div>;
+  return <div id="map" style={{ height: "900px", width: "758px" }}></div>;
 }
 
 export default MapPage;

@@ -5,26 +5,30 @@ function BookedHotels() {
   const [bookedHotels, setBookedHotels] = useState([]);
 
   useEffect(() => {
-    fetch('/api/booked_hotels') // replace with your API endpoint
-      .then(response => response.json())
-      .then(data => setBookedHotels(data))
-      .catch(error => console.error(error));
+    fetch("/api/booked_hotels") // replace with your API endpoint
+      .then((response) => response.json())
+      .then((data) => setBookedHotels(data))
+      .catch((error) => console.error(error));
   }, []);
 
   const handleDeleteClick = (hotelId) => {
     fetch(`/api/booked_hotels/${hotelId}`, { method: "DELETE" }) // replace with your API endpoint
-      .then(response => response.json())
-      .then(data => {
-        const filteredHotels = bookedHotels.filter(hotel => hotel.id !== hotelId);
+      .then((response) => response.json())
+      .then((data) => {
+        const filteredHotels = bookedHotels.filter(
+          (hotel) => hotel.id !== hotelId
+        );
         setBookedHotels(filteredHotels);
       })
-      .catch(error => console.error(error));
+      .catch((error) => console.error(error));
   };
 
   return (
     <div>
       <Navbar />
-      <h1 className="mt-20 text-xl ml-10 cursor-context-menu ">Booked Hotels</h1>
+      <h1 className="mt-20 text-xl ml-10 cursor-context-menu ">
+        Booked Hotels
+      </h1>
       {bookedHotels.map((hotel) => (
         <div key={hotel.id} className="bg-white mt-9 rounded-lg shadow-lg">
           <img
