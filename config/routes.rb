@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   resources :reviews, only: [:index, :create, :destroy]
   resources :hotels
   # Sign-up and login routes
-  post '/signup', to: 'users#register', as: 'signup'
-  post '/login', to: 'users#login', as: 'login'
-
+  post '/signup' => 'users#register'
+  post '/login' => 'users#login'
   #custom admin hotel route
   get '/my_hotels' => 'hotels#my_hotels'
 
