@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
-  const [active, setActive] = useState('hidden');
-  const [toggleIcon, setToggleIcon] = useState('block');
+  const [active, setActive] = useState("hidden");
+  const [toggleIcon] = useState("block");
   const [scrolled, setScrolled] = useState(false);
 
   const navToggle = () => {
-    setActive(active === 'hidden' ? 'block' : 'hidden');
+    setActive(active === "hidden" ? "block" : "hidden");
   };
 
   const handleScroll = () => {
@@ -19,43 +20,66 @@ function Navbar() {
   };
 
   React.useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <nav className={`fixed flex items-center flex-shrink-0 text-black  z-10 top-0 left-0 right-0 transition-all duration-500 ease-in-out ${
-      scrolled ? 'bg-blue-500' : 'bg-transparent'
-    } px-8 py-4`}>
+    <nav
+      className={`fixed flex items-center flex-shrink-0 text-black  z-10 top-0 left-0 right-0 transition-all duration-500 ease-in-out ${
+        scrolled ? "bg-blue-500" : "bg-transparent"
+      } px-8 py-4`}
+    >
       <div className="flex items-center flex-shrink-0 text-black mr-6">
-        <a href="#" className="font-semibold text-3xl tracking-tight">
-          SUMMER HOTELS
-        </a>
+        <p className="font-semibold text-3xl tracking-tight">SUMMER HOTELS</p>
       </div>
-      <div className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${active}`}>
-        <div className="text-base lg:flex-grow lg:text-right mr-52">
-          <a href="#" className="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-6">
+      <div
+        className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${active}`}
+      >
+        <div className="text-base lg:flex-grow lg:text-right mr-5">
+          <Link
+            Link
+            to="/Home"
+            className="block mt-4 lg:inline-block lg:mt-0 text-black hover:bg-green-100 rounded-full bg-white hover:bg-green-100 text-black font-semibold hover:text-black py-2 ml-4 px-4 border border-white rounded-full  mr-6"
+          >
             Search
-          </a>
-          <a href="#" className="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-6">
+          </Link>
+          <Link
+            to="/Home"
+            className="block mt-4 lg:inline-block lg:mt-0 text-black hover:bg-green-100 rounded-full bg-white hover:bg-green-100 text-black font-semibold hover:text-black py-2 ml-4 px-4 border border-white rounded-full  mr-6"
+          >
             Home
-          </a>
-          <a href="#" className="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-6">
+          </Link>
+          <Link
+            to="/Admin"
+            className="block mt-4 lg:inline-block lg:mt-0 text-black hover:bg-green-100 rounded-full bg-white hover:bg-green-100 text-black font-semibold hover:text-black py-2 ml-4 px-4 border border-white rounded-full  mr-6"
+          >
             Admin
-          </a>
-          <a href="#" className="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-6">
+          </Link>
+          <Link
+            to="/Contact"
+            className="block mt-4 lg:inline-block lg:mt-0 text-black hover:bg-green-100 rounded-full bg-white hover:bg-green-100 text-black font-semibold hover:text-black py-2 ml-4 px-4 border border-white rounded-full  mr-6  mr-6"
+          >
             Contact
-          </a>
-          <a href="#" className="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white">
-            About
-          </a>
+          </Link>
+          <Link
+            to="/About"
+            className="block mt-4 lg:inline-block lg:mt-0 text-black hover:bg-green-100 rounded-full bg-white hover:bg-green-100 text-black font-semibold hover:text-black py-2 ml-4 px-4 border border-white rounded-full "
+          >
+            Help
+          </Link>
         </div>
       </div>
       <div onClick={navToggle} className={`block lg:hidden ${toggleIcon}`}>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-6 h-6">
-          <path className="line1" d="M4 6h12v2H4zm0 5h12v2H4zm0 5h12v2H4z"/>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          className="w-6 h-6"
+        >
+          <path className="line1" d="M4 6h12v2H4zm0 5h12v2H4zm0 5h12v2H4z" />
         </svg>
       </div>
     </nav>

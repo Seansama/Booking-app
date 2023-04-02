@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Login(props) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('/login', {
-      method: 'POST',
+    const response = await fetch("/login", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, password }),
     });
@@ -19,7 +19,7 @@ function Login(props) {
     if (response.ok) {
       setLoggedIn(true);
     } else {
-      alert('Invalid email or password');
+      alert("Invalid email or password");
     }
   };
 
@@ -33,7 +33,10 @@ function Login(props) {
         <h2 className="text-2xl font-bold mb-4">Login</h2>
         <form className="login-form" onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-gray-700 font-bold mb-2" htmlFor="email">
+            <label
+              className="block text-gray-700 font-bold mb-2"
+              htmlFor="email"
+            >
               Email
             </label>
             <input
@@ -48,7 +51,10 @@ function Login(props) {
           </div>
 
           <div className="mb-4">
-            <label className="block text-gray-700 font-bold mb-2" htmlFor="password">
+            <label
+              className="block text-gray-700 font-bold mb-2"
+              htmlFor="password"
+            >
               Password
             </label>
             <input
@@ -62,15 +68,20 @@ function Login(props) {
             />
           </div>
 
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600" type="submit">
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+            type="submit"
+          >
             Log In
           </button>
 
           <button className="block text-sm text-center text-gray-700 hover:underline mt-4">
-            Don't have an account?{' '}
+            Don't have an account?{" "}
             <Link to="/signup">
-              {' '}
-              <button className="text-blue-500 hover:underline">Create here.</button>
+              {" "}
+              <button className="text-blue-500 hover:underline">
+                Create here.
+              </button>
             </Link>
           </button>
         </form>
