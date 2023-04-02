@@ -24,7 +24,7 @@ function Login(props) {
   };
 
   if (loggedIn) {
-    return <Link to="/home" />;
+    return <Link to="/home">Go to home page</Link>;
   }
 
   return (
