@@ -1,17 +1,10 @@
-You can achieve this by conditionally rendering the "Help" button in the Navbar component based on the current path using the useLocation hook from the react-router-dom package.
-
-Here's how you can modify the Navbar component code to achieve this:
-
-jsx
-Copy code
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [active, setActive] = useState("hidden");
   const [toggleIcon] = useState("block");
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
 
   const navToggle = () => {
     setActive(active === "hidden" ? "block" : "hidden");
@@ -32,8 +25,6 @@ function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  const showHelpButton = ["/home", "/admin", "/contact", "/about", "/booked"].includes(location.pathname.toLowerCase());
 
   return (
     <nav
