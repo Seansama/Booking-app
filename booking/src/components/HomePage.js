@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import MapPage from "./MapPage";
+import Navbar from "./navbar";
 
  
 
@@ -125,7 +125,8 @@ function HomePage() {
 
 
    return (
-    <div className="bg-white rounded-lg shadow-lg">
+    <div className="bg-white mt-9 rounded-lg shadow-lg">
+      
     <img
       className="w-full h-64 rounded-t-lg object-cover"
       src={hotel.image}
@@ -172,6 +173,7 @@ return (
   className="container mx-1   py-10 flex"
 
 >
+  <Navbar />
   <div
     className="w-full md:w-3/4 lg:w-3/4 flex-1 flex-grow"
     style={{ marginRight: "26%" }}
@@ -184,7 +186,7 @@ return (
       ))}
     </div>
   </div>
-     <div className="fixed top-11 right-72 h-screen w-1/4">
+     <div className="fixed mt-7  right-72 h-screen w-1/4">
        {/* your map component goes here */}
        <Map />
      </div>

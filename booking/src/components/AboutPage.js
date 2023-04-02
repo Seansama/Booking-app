@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from './Footer';
 // import Card from "./Card";
 
 // import gogin_getstarted from "./img/gogin_getstarted.png";
@@ -86,6 +87,7 @@ const AboutPage = () => {
           </Card>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

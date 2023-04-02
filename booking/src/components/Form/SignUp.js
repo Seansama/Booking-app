@@ -10,7 +10,7 @@ function Log() {
       }
 
     return ( 
-<section className="form">
+<section className="">
         {
              currentForm === "register" ? <Register onFormSwitch={toggleForm}/> : <Login onFormSwitch={toggleForm}/>
         } 
