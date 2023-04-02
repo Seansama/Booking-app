@@ -24,7 +24,12 @@ function Login(props) {
   };
 
   if (loggedIn) {
-    return <Link to="/home">Go to home page</Link>;
+    return <div className="flex items-center h-screen">
+    <div className="mx-auto">
+      <Link to="/home" class="py-3 px-6 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600">CONTINUE</Link>
+    </div>
+  </div>
+  ;
   }
 
   return (
