@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Footer from './Footer';
 
 function LandingPage() {
  const bgImage = "url('https://images.unsplash.com/photo-1467377791767-c929b5dc9a23?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80')";
@@ -47,15 +47,17 @@ function LandingPage() {
 <button className="bg-white text-xl hover:bg-green-100 text-black font-semibold hover:text-black py-2  px-4 border border-white    ">
    GET STARTED 
  </button>
-   </div>
-   <div className="ml-11 ">
+ <div className="ml-11 ">
    
      <img src="https://hotel-booking-application-alpha.vercel.app/image/Screenshot%20from%202022-12-14%2023-32-45.png" alt="Destination Icon" className="mr-2  m-20  " />
   
  
  </div>
    </div>
+  
+   </div>
            </div>
+           <Footer/>
        </div>
       
  );
