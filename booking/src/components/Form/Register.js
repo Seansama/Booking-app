@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../navbar";
+ 
 
 function Register(props) {
   const [email, setEmail] = useState("");
@@ -30,7 +30,7 @@ function Register(props) {
   return (
     <div className="">
       <section className="bg-blue-300 min-h-screen flex items-center justify-center">
-        <Navbar />
+      
         <div className="auth-form-container bg-white p-8 rounded-md shadow-md">
           <h2 className="text-2xl font-bold mb-4">Create an Account</h2>
           <form className="register-form" onSubmit={handleSubmit}>

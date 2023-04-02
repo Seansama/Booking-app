@@ -7,13 +7,13 @@ import HomePage from "./components/HomePage";
 import LandingPage from "./components/LandingPage";
 import Login from "./components/Form/Login";
 import SignUp from "./components/Form/SignUp";
-import Navbar from "./components/navbar";
+ 
 
 function App() {
   return (
     <Router>
       <div>
-        <Navbar />
+   
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/home" element={<HomePage />} />

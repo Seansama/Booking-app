@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "./Footer";
+import Navbar from "./navbar";
 // import Card from "./Card";
 
 // import gogin_getstarted from "./img/gogin_getstarted.png";
@@ -25,6 +26,8 @@ const Card = ({ title, image, children }) => {
 
 const AboutPage = () => {
   return (
+    <div>
+      <Navbar />
     <div className="bg-gray-200 min-h-screen">
       <div className="mx-auto px-4 py-8 max-w-7xl">
         <h1 className="text-4xl font-bold text-center mt-8 mb-12">
@@ -101,6 +104,7 @@ const AboutPage = () => {
         </div>
       </div>
       <Footer />
+    </div>
     </div>
   );
 };

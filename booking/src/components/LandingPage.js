@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Navbar from "./navbar";
+ 
 import Footer from "./Footer";
 
 function LandingPage() {
@@ -18,7 +18,7 @@ function LandingPage() {
 
   return (
     <div style={bgStyle}>
-      <Navbar />
+     
       <div>
         <div className="m-40 text-white text-b  text-center font-bold font-weight: 700 ">
           <div className="text-6xl">
