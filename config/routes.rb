@@ -11,8 +11,6 @@ Rails.application.routes.draw do
   get '/user/login/check', to: 'users#check_login_status'
 
 
-  
-
   # Verify auth route
   get '/authorize', to: 'application#authorize'
 

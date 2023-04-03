@@ -5,7 +5,7 @@ class User < ApplicationRecord
     has_many :hotels, through: :bookings
 
     validates :username,{
-        length:{ maximum: 9,  minimum: 6 },
+        length:{ maximum: 36,  minimum: 6 },
         uniqueness:true,
         presence:true
     }
@@ -14,8 +14,7 @@ class User < ApplicationRecord
         uniqueness:true,
         presence:true
     }
-   
-  
+
 end
 
 

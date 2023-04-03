@@ -1,5 +1,10 @@
 class ReviewsController < ApplicationController
+
   before_action :authorize
+
+  
+
+
   def index
     reviews = Review.all
     if reviews
@@ -31,6 +36,9 @@ class ReviewsController < ApplicationController
     end
   end
 
-
+  private
+  def authorize
+    render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+  end
 
 end

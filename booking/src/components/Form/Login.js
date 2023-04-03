@@ -1,35 +1,98 @@
-import './Form.css'
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Login(props) {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(email)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch("http://127.0.0.1:3000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+
+    if (response.ok) {
+      setLoggedIn(true);
+    } else {
+      alert("Invalid email or password");
     }
-    return ( 
-        <section className="card">
+  };
 
-            <div className="auth-form-container">
-                <h2>Login</h2>
-                <form className="login-form" onSubmit={handleSubmit}>
-                    <label className='label' htmlFor="email">Email</label>
-                     <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@gmail.com" id="email" name="email"></input>
+  if (loggedIn) {
+    return <div className="flex items-center h-screen">
+    <div className="mx-auto">
+      <Link to="/home" class="py-3 px-6 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600">CONTINUE</Link>
+    </div>
+  </div>
+  ;
+  }
 
-                    <lable className='label' htmlFor="password">Password</lable>
-                     <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="********" id="password" name="password"></input>
+  return (
+    <section className="flex bg-blue-300 flex-col items-center justify-center min-h-screen ">
+      <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-6">
+        <h2 className="text-2xl font-bold mb-4">Login</h2>
+        <form className="login-form" onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 font-bold mb-2"
+              htmlFor="email"
+            >
+              Email
+            </label>
+            <input
+              className="border rounded-lg px-3 py-2 w-full"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              placeholder="youremail@gmail.com"
+              id="email"
+              name="email"
+            />
+          </div>
 
-                    <button type="submit">Log In</button>
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 font-bold mb-2"
+              htmlFor="password"
+            >
+              Password
+            </label>
+            <input
+              className="border rounded-lg px-3 py-2 w-full"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              placeholder="********"
+              id="password"
+              name="password"
+            />
+          </div>
 
-                    <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Don't have an account ? Create here.</button>
-                 </form>
-            </div>
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+            type="submit"
+          >
+            Log In
+          </button>
 
-
-        </section>
-     );
+          <button className="block text-sm text-center text-gray-700 hover:underline mt-4">
+            Don't have an account?{" "}
+            <Link to="/signup">
+              {" "}
+              <button className="text-blue-500 hover:underline">
+                Create here.
+              </button>
+            </Link>
+          </button>
+        </form>
+      </div>
+    </section>
+  );
 }
 
 export default Login;
