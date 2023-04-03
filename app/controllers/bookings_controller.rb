@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  #before_action :authorize
+  before_action :authorize
 
   def index
     user = User.find_by(id: params[:id])
