@@ -1,8 +1,9 @@
 class HotelsController < ApplicationController
-  #before_action :authorize
+  before_action :verify_auth
+  before_action
   def index
     hotels = Hotel.all
-    if hotels
+    if hotels.present?
       render json: hotels, status: :ok
 
     else
@@ -13,7 +14,7 @@ class HotelsController < ApplicationController
   def show
     hotel = Hotel.find_by(name: params[:name])
     if hotel
-      render json: hotel, status: :found
+      render json: hotel, status: :ok
     else
       render json: {error: 'Seems this hotel does not exist'}, status: :not_found
     end
@@ -23,10 +24,13 @@ class HotelsController < ApplicationController
     hotel = Hotel.create(
       name: params[:name],
     rating: params[:rating],
-      class: params[:class],
+      hotel_class: params[:hotel_class],
       description: params[:description],
       price: params[:price],
-      image: params[:image]
+      additional: params[:additional],
+      image: params[:image],
+      lat: params[:lat],
+      lng: params[:lng]
     )
     if hotel.save
       render json: hotel, status: :created
@@ -39,7 +43,6 @@ class HotelsController < ApplicationController
     hotel = Hotel.find_by(id: params[:id], user_id: session[:user_id])
     hotel.update(
       rating: params[:rating],
-      class: params[:class],
       description: params[:description],
       price: params[:price]
     )
@@ -59,7 +62,7 @@ class HotelsController < ApplicationController
     end
   end
   def my_hotels
-    hotels = Hotel.find_by(id: params[:id], user_id: session[:user_id])
+    hotels = Hotel.where(user_id: session[:user_id])
     if hotels.all
       render json: hotels, status: :ok
     else
@@ -67,8 +70,4 @@ class HotelsController < ApplicationController
     end
  end
 
-  private
-  def authorize
-    render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
-  end
 end
