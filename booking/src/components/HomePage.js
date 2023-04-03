@@ -53,7 +53,7 @@ function Map() {
       );
 
       // add marker function
-      const url = "https://api.jsonbin.io/v3/b/6421a4c8ace6f33a22fe2d30";
+      const url = "http://127.0.0.1:3000/hotels";
 
       fetch(url)
         .then((response) => response.json())
@@ -124,7 +124,7 @@ function HomePage() {
   const [hotels, setHotels] = useState([]);
 
   useEffect(() => {
-    fetch("https://api.jsonbin.io/v3/b/6421a4c8ace6f33a22fe2d30")
+    fetch("http://127.0.0.1:3000/hotels")
       .then((response) => response.json())
       .then((data) => setHotels(data.record.hotels))
       .catch((error) => console.error(error));

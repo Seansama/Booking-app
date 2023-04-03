@@ -6,7 +6,7 @@ function HomePage() {
   const [hotels, setHotels] = useState([]);
 
   useEffect(() => {
-    fetch("API/adminhotels")
+    fetch("http://127.0.0.1:3000/my_hotels")
       .then((response) => response.json())
       .then((data) => setHotels(data.record.hotels))
       .catch((error) => console.error(error));
@@ -43,7 +43,7 @@ function HomePage() {
             </div>
           </div>
           <p className="text-gray-500 text-sm mt-1">
-            ⭐ {hotel.rating} {hotel.hotelClass}
+            ⭐ {hotel.rating} {hotel.hotel_class}
           </p>
           <p className="text-gray-600 text-sm mt-2">{hotel.description}</p>
           <p className="text-gray-600 text-sm mt-2">{hotel.additional}</p>
@@ -87,7 +87,7 @@ function Admin() {
   const [formData, setFormData] = useState({
     name: "",
     rating: "",
-    class: "",
+    hotel_class: "",
     description: "",
     additional: "",
     price: "",
@@ -117,12 +117,11 @@ function Admin() {
         setFormData({
           name: "",
           rating: "",
-          class: "",
+          hotel_class: "",
           description: "",
           additional: "",
           price: "",
           image: "",
-          
           userId: "",
         });
       })
@@ -199,13 +198,13 @@ function Admin() {
               htmlFor="class"
               className="block mb-2 font-bold text-gray-700"
             >
-              Class:
+              Hotel Class:
             </label>
             <input
               type="text"
               id="class"
               name="class"
-              value={formData.class}
+              value={formData.hotel_class}
               onChange={handleFormChange}
               className="w-full border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
