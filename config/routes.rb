@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   resources :hotels
 
   # Sign-up and login routes
+  post '/users', to: 'users#register'
   post '/signup', to: 'users#register', as: 'signup'
   post '/login', to: 'users#login', as: 'login'
+  delete '/users/logout', to: 'users#logout'
+  get '/user/login/check', to: 'users#check_login_status'
 
 
   
