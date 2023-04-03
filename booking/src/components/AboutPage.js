@@ -1,6 +1,12 @@
 import React from "react";
 import Footer from "./Footer";
 import Navbar from "./navbar";
+import addhotel from "../components/screenshots/addhotel.png"
+import home from "../components/screenshots/home.png"
+import login from "../components/screenshots/login.png"
+import booked from "./screenshots/booked.png"
+import search from "./screenshots/search.png"
+import deletei from "./screenshots/delete.png"
 // import Card from "./Card";
 
 // import gogin_getstarted from "./img/gogin_getstarted.png";
@@ -36,7 +42,7 @@ const AboutPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <Card title="Register/Login">
             <img
-              src="{gogin_getstarted}"
+              src= {login}
               alt="Register/Login"
               className="w-full h-48 object-cover"
             />
@@ -48,7 +54,7 @@ const AboutPage = () => {
 
           <Card title="View Memes">
             <img
-              src="{home}"
+              src={home}
               alt="View Memes"
               className="w-full h-48 object-cover"
             />
@@ -59,7 +65,7 @@ const AboutPage = () => {
           </Card>
           <Card title="Add Memes">
             <img
-              src="{addmeme}"
+              src={addhotel}
               alt="View Memes"
               className="w-full h-48 object-cover"
             />
@@ -70,17 +76,17 @@ const AboutPage = () => {
           </Card>
           <Card title="My Memes">
             <img
-              src="{mymeme}"
+              src={booked}
               alt="View Memes"
               className="w-full h-48 object-cover"
             />
             <p className="mt-4">
-              To view the hotels you've added, click on the booked button.
+              To view the hotels you've booked, click on the booked button.
             </p>
           </Card>
           <Card title="Search Memes">
             <img
-              src="{searchmeme}"
+              src={search}
               alt="View Memes"
               className="w-full h-48 object-cover"
             />
@@ -91,7 +97,7 @@ const AboutPage = () => {
           </Card>
           <Card title="Remove Memes">
             <img
-              src="{deletemem}"
+              src= {deletei}
               alt="View Memes"
               className="w-full h-48 object-cover"
             />
