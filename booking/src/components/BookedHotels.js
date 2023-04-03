@@ -5,7 +5,7 @@ function BookedHotels() {
   const [bookedHotels, setBookedHotels] = useState([]);
 
   useEffect(() => {
-    fetch("/api/booked_hotels") // replace with your API endpoint
+    fetch("http://127.0.0.1:3000/bookings") // replace with your API endpoint
       .then((response) => response.json())
       .then((data) => setBookedHotels(data))
       .catch((error) => console.error(error));

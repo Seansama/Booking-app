@@ -4,9 +4,12 @@ class Hotel < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :users, through: :bookings
   validates :name, uniqueness:true, presence: true
-  validates :class, presence: true
+  validates :hotel_class, presence: true
   validates :description, presence: true, uniqueness: true
   validates :image, presence: true , uniqueness: true
   validates :price, presence: true
   validates :rating, presence: true
+  validates :additional, presence: true
+  #validates :lat, presence: true, uniqueness: true
+  #validates :lng, presence: true, uniqueness: true
 end
