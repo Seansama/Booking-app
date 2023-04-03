@@ -6,36 +6,25 @@ function HomePage() {
   const [hotels, setHotels] = useState([]);
 
   useEffect(() => {
-    fetch("API/ admihotel")
+    fetch("API/adminhotels")
       .then((response) => response.json())
       .then((data) => setHotels(data.record.hotels))
       .catch((error) => console.error(error));
   }, []);
 
-  const handleSearch = (query) => {
-    // Filter the list of hotels based on the query string
-    const filteredHotels = hotels.filter((hotel) =>
-      hotel.name.toLowerCase().includes(query.toLowerCase())
-    );
-
-    // Update the state with the filtered list of hotels
-    setHotels(filteredHotels);
-  };
+  
   const Card = ({ hotel }) => {
     const [isLiked, setIsLiked] = useState(false);
-    const [isBooked, setIsBooked] = useState(false);
+     
 
     const handleLikeClick = () => {
       setIsLiked(!isLiked);
     };
 
-    const handleBookClick = () => {
-      setIsBooked(true);
-      alert(`${hotel.name} has been successfully booked`);
-    };
+   
 
     return (
-      <div className="bg-white mt- rounded-lg shadow-lg">
+      <div className="bg-white mt-9 rounded-lg shadow-lg">
         <img
           className="w-full h-64 rounded-t-lg object-cover"
           src={hotel.image}
@@ -68,10 +57,12 @@ function HomePage() {
   };
 
   return (
-    <div className="container mx-1 ml-20  py-10 flex">
+    <div className="container mx-1   py-10 flex">
+      <Navbar />
+
       <div
         className="w-full md:w-3/4 lg:w-3/4 flex-1 flex-grow"
-        
+         
       >
        
         <div className="flex flex-wrap ">
@@ -82,7 +73,10 @@ function HomePage() {
           ))}
         </div>
       </div>
-     
+      <div className="fixed mt-7  right-72 h-screen w-1/4">
+        {/* your map component goes here */}
+    
+      </div>
     </div>
   );
 }
