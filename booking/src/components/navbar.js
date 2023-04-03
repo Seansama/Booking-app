@@ -41,10 +41,10 @@ function Navbar() {
         <div className="text-base lg:flex-grow lg:text-right mr-5">
           <Link
             Link
-            to="/Home"
+            to="/Booked"
             className="block mt-4 lg:inline-block lg:mt-0 text-black hover:bg-green-100 rounded-full bg-white hover:bg-green-100 text-black font-semibold hover:text-black py-2 ml-4 px-4 border border-white rounded-full  mr-6"
           >
-            Search
+            Booked
           </Link>
           <Link
             to="/Home"
