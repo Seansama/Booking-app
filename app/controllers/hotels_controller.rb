@@ -1,5 +1,5 @@
 class HotelsController < ApplicationController
-  before_action :verify_auth
+  before_action :authorize
   before_action
   def index
     hotels = Hotel.all
@@ -70,4 +70,12 @@ class HotelsController < ApplicationController
     end
  end
 
+  private
+  def authorize
+    render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+  end
+
+  def set_cors_headers
+    response.set_header('Access-Control-Allow-Credentials', 'true')
+  end
 end
