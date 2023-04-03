@@ -112,7 +112,7 @@ function Admin() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    fetch("/api/hotels", {
+    fetch("http://127.0.0.1:3000/hotels", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
@@ -136,7 +136,7 @@ function Admin() {
   }
 
   useEffect(() => {
-    fetch("/api/hotels")
+    fetch("http://127.0.0.1:3000/my_hotels")
       .then((response) => response.json())
       .then((data) => {
         console.log("Hotels fetched:", data);

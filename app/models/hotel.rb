@@ -9,4 +9,7 @@ class Hotel < ApplicationRecord
   validates :image, presence: true , uniqueness: true
   validates :price, presence: true
   validates :rating, presence: true
+  validates :additional, presence: true
+  validates :lat, presence: true, uniqueness: true
+  validates :lng, presence: true, uniqueness: true
 end

@@ -1,5 +1,5 @@
 class HotelsController < ApplicationController
-  before_action :authorize
+  #before_action :authorize
   def index
     hotels = Hotel.all
     if hotels
