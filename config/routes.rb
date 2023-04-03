@@ -9,9 +9,6 @@ Rails.application.routes.draw do
   #custom admin hotel route
   get '/my_hotels' => 'hotels#my_hotels'
 
-
-  
-
   # Verify auth route
   #get '/authorize', to: 'application#authorize'
 

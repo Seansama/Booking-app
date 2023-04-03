@@ -36,7 +36,7 @@ class HotelsController < ApplicationController
   end
 
   def update
-    hotel = Hotel.find_by(id: params[:id])
+    hotel = Hotel.find_by(id: params[:id], user_id: session[:user_id])
     hotel.update(
       rating: params[:rating],
       class: params[:class],
@@ -51,18 +51,16 @@ class HotelsController < ApplicationController
   end
 
   def destroy
-    hotel = Hotel.find_by(id: params[:id])
-    hotel.destroy
-    if hotel
+    hotel = Hotel.find_by(id: params[:id], user_id: session[:user_id])
+    if hotel.destroy
       head :no_content
     else
       render json: {error: 'Could not delete hotel'}, status: :not_found
     end
   end
   def my_hotels
-    hotels = Hotel.find_by(id: params[:user_id])
-    hotels.all
-    if hotels
+    hotels = Hotel.find_by(id: params[:id], user_id: session[:user_id])
+    if hotels.all
       render json: hotels, status: :ok
     else
       render json: {error: 'No hotels for this user'}, status: :not_found
