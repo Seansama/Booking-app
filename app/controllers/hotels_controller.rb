@@ -1,6 +1,5 @@
 class HotelsController < ApplicationController
-  before_action :authorize
-  before_action
+  #before_action :authorize
   def index
     hotels = Hotel.all
     if hotels.present?
@@ -40,7 +39,7 @@ class HotelsController < ApplicationController
   end
 
   def update
-    hotel = Hotel.find_by(id: params[:id], user_id: session[:user_id])
+    hotel = Hotel.find_by(id: params[:id])
     hotel.update(
       rating: params[:rating],
       description: params[:description],
@@ -54,21 +53,21 @@ class HotelsController < ApplicationController
   end
 
   def destroy
-    hotel = Hotel.find_by(id: params[:id], user_id: session[:user_id])
+    hotel = Hotel.find_by(id: params[:id])
     if hotel.destroy
       head :no_content
     else
       render json: {error: 'Could not delete hotel'}, status: :not_found
     end
   end
-  def my_hotels
-    hotels = Hotel.where(user_id: session[:user_id])
-    if hotels.all
-      render json: hotels, status: :ok
-    else
-      render json: {error: 'No hotels for this user'}, status: :not_found
-    end
- end
+  #def my_hotels
+  #hotels = Hotel.where(user_id: session[:user_id])
+  #if hotels.all
+  #render json: hotels, status: :ok
+  #else
+  #render json: {error: 'No hotels for this user'}, status: :not_found
+  #end
+  #end
 
   private
   def authorize

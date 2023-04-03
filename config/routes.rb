@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   #match '/login', to: 'sessions#create', via: [:options]
   #custom admin hotel route
-  get '/my_hotels' => 'hotels#my_hotels'
+  #get '/my_hotels' => 'hotels#my_hotels'
 
   # Verify auth route
   #get '/authorize', to: 'application#authorize'

@@ -2,87 +2,6 @@ import React, { useState, useEffect } from "react";
 import Footer from "./Footer";
 import Navbar from "./navbar";
 
-function HomePage() {
-  const [hotels, setHotels] = useState([]);
-
-  useEffect(() => {
-    fetch("http://127.0.0.1:3000/my_hotels")
-      .then((response) => response.json())
-      .then((data) => setHotels(data.record.hotels))
-      .catch((error) => console.error(error));
-  }, []);
-
-  
-  const Card = ({ hotel }) => {
-    const [isLiked, setIsLiked] = useState(false);
-     
-
-    const handleLikeClick = () => {
-      setIsLiked(!isLiked);
-    };
-
-   
-
-    return (
-      <div className="bg-white mt-9 rounded-lg shadow-lg">
-        <img
-          className="w-full h-64 rounded-t-lg object-cover"
-          src={hotel.image}
-          alt={hotel.name}
-        />
-        <div className="p-4">
-          <div className="flex justify-between items-center">
-            <h4 className="text-lg font-medium">{hotel.name}</h4>
-            <div className="like">
-              <i
-                className={`fas fa-heart${
-                  isLiked ? " active text-red-500" : ""
-                }`}
-                onClick={handleLikeClick}
-              ></i>
-            </div>
-          </div>
-          <p className="text-gray-500 text-sm mt-1">
-            ⭐ {hotel.rating} {hotel.hotel_class}
-          </p>
-          <p className="text-gray-600 text-sm mt-2">{hotel.description}</p>
-          <p className="text-gray-600 text-sm mt-2">{hotel.additional}</p>
-          <p className="text-lg font-medium mt-4">
-            <b>{hotel.price}</b> / night
-          </p>
-          
-        </div>
-      </div>
-    );
-  };
-
-  return (
-    <div className="container mx-1   py-10 flex">
-      <Navbar />
-
-      <div
-        className="w-full md:w-3/4 lg:w-3/4 flex-1 flex-grow"
-         
-      >
-       
-        <div className="flex flex-wrap ">
-          {hotels.map((hotel, index) => (
-            <div key={index} className="px-4 mb-8 w-full md:w-1/2 lg:w-1/3">
-              <Card hotel={hotel} />
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="fixed mt-7  right-72 h-screen w-1/4">
-        {/* your map component goes here */}
-    
-      </div>
-    </div>
-  );
-}
-
-
-
 function Admin() {
   const [formData, setFormData] = useState({
     name: "",
@@ -202,8 +121,8 @@ function Admin() {
             </label>
             <input
               type="text"
-              id="class"
-              name="class"
+              id="hotel_class"
+              name="hotel_class"
               value={formData.hotel_class}
               onChange={handleFormChange}
               className="w-full border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -283,7 +202,6 @@ function Admin() {
           </div>
         </form>
       </div>
-      <HomePage/>
       <Footer />
     </div>
   );

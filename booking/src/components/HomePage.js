@@ -81,7 +81,7 @@ function HomePage() {
             </div>
           </div>
           <p className="text-gray-500 text-sm mt-1">
-            ⭐ {hotel.rating} {hotel.hotelClass}
+            ⭐ {hotel.rating} {hotel.hotel_class}
           </p>
           <p className="text-gray-600 text-sm mt-2">{hotel.description}</p>
           <p className="text-gray-600 text-sm mt-2">{hotel.additional}</p>
