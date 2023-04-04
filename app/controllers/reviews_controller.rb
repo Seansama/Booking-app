@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-  before_action :verify_auth
+  before_action :authorize
 
   def index
     reviews = Review.all
