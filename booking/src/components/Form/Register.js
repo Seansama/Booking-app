@@ -45,7 +45,7 @@ function Register(props) {
               onChange={(e) => setName(e.target.value)}
               className="w-full border border-gray-400 p-2 rounded-md mb-4"
               type="name"
-              placeholder="Full Name"
+              placeholder="Username"
               id="name"
             ></input>
 

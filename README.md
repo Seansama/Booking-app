@@ -1,12 +1,8 @@
 # BOOKING 
 
-This website is a platform for booking hotels in Nairobi. It allows users to view information about various hotels in the city, including their names, ratings, classes, descriptions, additional information, and prices. Users can browse through the hotels using cards that display this information and can book a hotel by clicking a button on the card. The website also includes a form for users to sign up and a Google Maps instance with markers for each hotel. The website is designed to be user-friendly and visually appealing, with styles that enhance the layout and appearance of various elements on the page. Overall, the website aims to provide a convenient and straightforward way for users to find and book hotels in Nairobi.
+A Ruby-React app that allows travellers to book hotels.
 
 ## Running live Hosted Application.
-
-Click on this link to run the application.
-
-http://.......  
 
 Welcome to our hotel booking website! To begin your journey, clicking on the "Get Started" button prominently displayed on our landing page. This will guide you through the account creation process, allowing you to enjoy the full range of our hotel booking services. If you already have an account, simply click on the "Sign In" link to access your account.
 
@@ -17,11 +13,6 @@ If you're looking for a specific hotel, our search function allows you to find i
 At any point during your experience, if you need any help or support, our "Help" button is available to assist you. If you'd like to learn more about our team or get in touch with us directly, click on the "Contact" button to access our contact information.
 
 Thank you for choosing our website as your preferred hotel booking platform. We are committed to providing you with a high-quality, professional service, and look forward to helping you make your travel dreams a reality.
-
-
-
-
-
 
 ## Getting Started
 
@@ -53,8 +44,10 @@ _In case you just want to connect the API to a frontend solution without interac
 
 ## React live link
 
-**pending
+https://booking-app-phi.vercel.app/
 
+
+****_Caveat emptor_** - _Although the register and login functionalities work as expected with the completed backend in this frontend solution, issues with session inheritance from react prevented more solutions from being implemented from the backend. However, some dummy data was provided to serve as proof-of-concept for what we had originally envisioned. Additionally, in the help section, detailed steps on how the frontend solution was to work was provided. We envision to provide a feasible working solution in time to ensure a pleasant experience. Thank you._
 ## API Endpoints
 
 The following endpoints are available in the API:
@@ -67,13 +60,35 @@ The following endpoints are available in the API:
 - **PUT** `/hotel/:id` - Allows for hotel descriptions to be updated.
 - **POST** `/hotel` - Allows for creation of a new hotel listing.
 
-### Users
+### Session and users
 
-**pending
+- **POST** `/signup` - Allows for creation of a new user.
+- **POST** `/login` - Allows an existing user to sign in.
+- **DELETE** `/logout` - Logs out the current user, destroying the session.
 
+### Reviews
+
+- **GET** `/reviews` - returns a list of all reviews for a specific hotel.
+- **GET** `/reviews/:id` - returns a single review by ID for a specific hotel.
+- **POST** `/reviews/` - creates a new review for a specific hotel.
+- **PATCH** `/reviews/:id` - updates an existing review by ID for a specific hotel.
+- **DELETE** `/reviews/:id` - deletes a review by ID for a specific hotel.
+
+ ****_Editor's note_** - _Although the above controllers were in the original ideation of the the project, their implementation proved too difficult and thus were given up on. Future updates will see to fully integrate them into the project. You, the reader, could also do this yourself as the necessary dependencies were already made._
+
+### Bookings
+
+- **GET** `/bookings` - returns a list of all bookings.
+- **GET** `/bookings/:id` - returns a single booking by ID.
+- **POST** `/bookings` - creates a new booking.
+- **PATCH** `/bookings/:id` - updates an existing booking by ID.
+- **DELETE** `/bookings/:id` - deletes a booking by ID.
 
 _This project has been done by:_
 
-**pending
+- _Shaun Mwangi_
+- _Trevor Febias_
+- _Vivian Njoroge_
+- _Vincent Chisaka_
 
 **This project is open source under an MIT open source licence.**
