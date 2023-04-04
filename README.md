@@ -40,7 +40,7 @@ Then run `npm start --prefix booking` to start up the react app in development m
 
 _In case you just want to connect the API to a frontend solution without interacting with the API code itself_:
 
-**pending
+https://booking-app-vvj0.onrender.com/
 
 ## React live link
 

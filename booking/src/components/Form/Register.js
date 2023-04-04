@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
- 
+import { useNavigate } from 'react-router-dom'
 
-function Register(props) {
+function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setName] = useState("");
-
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -18,7 +18,7 @@ function Register(props) {
         body: JSON.stringify({ email, password, username }),
       });
       if (response.ok) {
-        props.history.push("/Login");
+        navigate('/Login')
       } else {
         throw new Error("Account not created. Please try again.");
       }
