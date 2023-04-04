@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  #before_action :authorize
+  before_action :authorize
 
   def index
     user = User.find_by(id: params[:id])
@@ -61,6 +61,11 @@ class BookingsController < ApplicationController
     else
       render json: {error: 'Could not delete. Are you sure this record exists?'}, status: :not_found
     end
+  end
+
+  private
+  def authorize
+    render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
   end
 
 end
