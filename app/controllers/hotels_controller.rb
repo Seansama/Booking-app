@@ -1,5 +1,5 @@
 class HotelsController < ApplicationController
-  before_action :verify_auth
+  before_action :authorize
   def index
     hotels = Hotel.all
     if hotels
@@ -67,4 +67,8 @@ class HotelsController < ApplicationController
     end
  end
 
+  private
+  def authorize
+    render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+  end
 end
