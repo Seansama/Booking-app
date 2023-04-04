@@ -1,9 +1,6 @@
 class ReviewsController < ApplicationController
 
-  before_action :authorize
-
-  
-
+  before_action :verify_auth
 
   def index
     reviews = Review.all
@@ -34,11 +31,6 @@ class ReviewsController < ApplicationController
     else
       render json: {error: 'Could not delete review'}, status: :not_found
     end
-  end
-
-  private
-  def authorize
-    render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
   end
 
 end

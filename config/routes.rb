@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   delete '/users/logout', to: 'users#logout'
   get '/user/login/check', to: 'users#check_login_status'
 
-
+  get 'my_hotels' => 'hotels#my_hotels'
   # Verify auth route
   get '/authorize', to: 'application#authorize'
 
