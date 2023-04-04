@@ -1,40 +1,106 @@
-import './Form.css'
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+ 
 
 function Register(props) {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setName] = useState("");
 
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      console.log(email)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://127.0.0.1:3000/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password, username }),
+      });
+      if (response.ok) {
+        props.history.push("/Login");
+      } else {
+        throw new Error("Account not created. Please try again.");
       }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
-    return (
-        <section className="card">
-              
-              <div className="auth-form-container">
-                  <h2>Create an Account</h2>
-                <form className="register-form" onSubmit={handleSubmit}>
-                    <lable  className='label' htmlFor="name">Full Name</lable>
-                    <input value={name} onChange={(e) => setName(e.target.value)} type="name" placeholder="full Name" id="name"></input>
+  return (
+    <div className="">
+      <section className="bg-blue-300 min-h-screen flex items-center justify-center">
+      
+        <div className="auth-form-container bg-white p-8 rounded-md shadow-md">
+          <h2 className="text-2xl font-bold mb-4">Create an Account</h2>
+          <form className="register-form" onSubmit={handleSubmit}>
+            <label
+              className="block text-gray-700 font-bold mb-2"
+              htmlFor="name"
+            >
+              Full Name
+            </label>
+            <input
+              value={username}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full border border-gray-400 p-2 rounded-md mb-4"
+              type="name"
+              placeholder="Full Name"
+              id="name"
+            ></input>
 
-                    <label className='label' htmlFor="email">Email</label>
-                     <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@gmail.com" id="email" name="email"></input>
+            <label
+              className="block text-gray-700 font-bold mb-2"
+              htmlFor="email"
+            >
+              Email
+            </label>
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full border border-gray-400 p-2 rounded-md mb-4"
+              type="email"
+              placeholder="youremail@gmail.com"
+              id="email"
+              name="email"
+            ></input>
 
-                    <lable className='label' htmlFor="password">Password</lable>
-                     <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="********" id="password" name="password"></input>
+            <label
+              className="block text-gray-700 font-bold mb-2"
+              htmlFor="password"
+            >
+              Password
+            </label>
+            <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full border border-gray-400 p-2 rounded-md mb-4"
+              type="password"
+              placeholder="********"
+              id="password"
+              name="password"
+            ></input>
 
-                    <button type="submit">Log In</button>
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mb-4"
+              type="submit"
+            >
+              Sign Up
+            </button>
 
-                    <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Already have an existing account ? Sign In here</button>
-                 </form>
-            </div>
-            
-            
-        </section>
-      );
+            <p className="text-center text-gray-700 text-sm mb-2">
+              Already have an existing account?{" "}
+              <Link to="/Login">
+                <button className="text-blue-500 hover:underline">
+                  Sign In here
+                </button>
+              </Link>{" "}
+            </p>
+          </form>
+        </div>
+      </section>
+    </div>
+  );
 }
 
 export default Register;

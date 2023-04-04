@@ -5,12 +5,24 @@
 
 # Read more: https://github.com/cyu/rack-cors
 
-# Rails.application.config.middleware.insert_before 0, Rack::Cors do
-#   allow do
-#     origins "example.com"
-#
-#     resource "*",
-#       headers: :any,
-#       methods: [:get, :post, :put, :patch, :delete, :options, :head]
-#   end
-# end
+ Rails.application.config.middleware.insert_before 0, Rack::Cors do
+  allow do
+    origins "*"
+
+    resource "session",
+      headers: :any,
+      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    resource "user",
+             headers: :any,
+             methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    resource "hotel",
+             headers: :any,
+             methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    resource "review",
+             headers: :any,
+             methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    resource "booking",
+             headers: :any,
+             methods: [:get, :post, :put, :patch, :delete, :options, :head]
+  end
+ end

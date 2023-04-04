@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_30_122337) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_03_114243) do
   create_table "bookings", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -28,14 +28,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_30_122337) do
   create_table "hotels", force: :cascade do |t|
     t.string "name", null: false
     t.integer "rating", null: false
-    t.string "class", null: false
+    t.string "hotel_class", null: false
     t.text "description", null: false
     t.integer "price", null: false
     t.text "image", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id", null: false
-    t.index ["user_id"], name: "index_hotels_on_user_id"
+    t.text "additional"
+    t.float "lat"
+    t.float "lng"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -57,6 +58,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_30_122337) do
 
   add_foreign_key "bookings", "hotels"
   add_foreign_key "bookings", "users"
-  add_foreign_key "hotels", "users"
   add_foreign_key "reviews", "hotels"
 end
