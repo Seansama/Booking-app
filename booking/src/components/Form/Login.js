@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-function Login(props) {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
-
+ const navigate = useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch("https://booking-app-vvj0.onrender.com/login", {
@@ -24,12 +24,15 @@ function Login(props) {
   };
 
   if (loggedIn) {
+    navigate('/home')
+    /*
     return <div className="flex items-center h-screen">
     <div className="mx-auto">
       <Link to="/home" class="py-3 px-6 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600">CONTINUE</Link>
     </div>
   </div>
   ;
+  */
   }
 
   return (
